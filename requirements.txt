@@ -1,2 +1,5 @@
 requests
 scrapy
+fastapi
+uvicorn
+sqlalchemy
