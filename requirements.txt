@@ -1,2 +1,6 @@
 requests
 scrapy
+fastapi
+uvicorn
+sqlalchemy
+pytest
