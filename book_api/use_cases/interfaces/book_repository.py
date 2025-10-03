@@ -1,17 +1,9 @@
-"""
-Interface for Book Repository.
-Defines what methods a book repository must have.
-"""
 from abc import ABC, abstractmethod
 from typing import List, Optional
 from book_api.domain.entities.book import Book
 
 
 class IBookRepository(ABC):
-    """
-    Interface that defines how to access book data.
-    Any class that implements this must have these methods.
-    """
 
     @abstractmethod
     def get_all(self) -> List[Book]:

@@ -1,17 +1,9 @@
-"""
-Interface for Genre Repository.
-Defines what methods a genre repository must have.
-"""
 from abc import ABC, abstractmethod
 from typing import List, Optional
 from book_api.domain.entities.genre import Genre
 
 
 class IGenreRepository(ABC):
-    """
-    Interface for accessing genre data.
-    Any class that implements this must have these methods.
-    """
 
     @abstractmethod
     def get_all(self) -> List[Genre]:

@@ -1,7 +1,3 @@
-"""
-Main FastAPI application - Clean Architecture version.
-This is the new entry point for your refactored API.
-"""
 from fastapi import FastAPI
 from book_api.infrastructure.database.connection import engine, Base
 from book_api.interface.api.book_router import router as book_router

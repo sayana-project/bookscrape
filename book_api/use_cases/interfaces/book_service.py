@@ -1,17 +1,9 @@
-"""
-Interface for Book Service.
-Defines business operations we can do with books.
-"""
 from abc import ABC, abstractmethod
 from typing import List, Dict, Any
 from book_api.domain.entities.book import Book
 
 
 class IBookService(ABC):
-    """
-    Interface for book business operations.
-    Contains the business logic methods.
-    """
 
     @abstractmethod
     def get_all_books(self) -> List[Book]:

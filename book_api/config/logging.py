@@ -1,18 +1,9 @@
-"""
-Logging configuration for the application.
-"""
 import logging
 import sys
 from typing import Dict, Any
 
 
 def setup_logging(level: str = "INFO") -> None:
-    """
-    Setup logging configuration for the application.
-
-    Args:
-        level: Logging level (DEBUG, INFO, WARNING, ERROR)
-    """
     # Configure root logger
     logging.basicConfig(
         level=getattr(logging, level.upper()),
@@ -35,13 +26,4 @@ def setup_logging(level: str = "INFO") -> None:
 
 
 def get_typed_logger(name: str) -> logging.Logger:
-    """
-    Get a typed logger instance.
-
-    Args:
-        name: Logger name (usually __name__)
-
-    Returns:
-        Logger instance
-    """
     return logging.getLogger(name)

@@ -1,16 +1,8 @@
-"""
-SQLAlchemy database models.
-These are the database table definitions.
-"""
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from book_api.infrastructure.database.connection import Base
 
 
 class BookModel(Base):
-    """
-    SQLAlchemy model for books table.
-    This represents the database table structure.
-    """
     __tablename__ = "books"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -28,10 +20,6 @@ class BookModel(Base):
 
 
 class GenreModel(Base):
-    """
-    SQLAlchemy model for genres table.
-    This represents the database table structure.
-    """
     __tablename__ = "books_genres"
 
     id = Column(Integer, primary_key=True, index=True)

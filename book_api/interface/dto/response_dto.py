@@ -1,15 +1,8 @@
-"""
-Response DTOs for API responses.
-These define the structure of API response data.
-"""
 from pydantic import BaseModel, Field
 from typing import List, Any
 
 
 class AveragePriceResponseDto(BaseModel):
-    """
-    DTO for average price calculation responses.
-    """
     total_books: int = Field(..., description="Total number of books")
     books_with_price: int = Field(..., description="Number of books with valid prices")
     average_price: float = Field(..., description="Average price")
@@ -25,9 +18,6 @@ class AveragePriceResponseDto(BaseModel):
 
 
 class AveragePriceByGenreResponseDto(BaseModel):
-    """
-    DTO for average price by genre responses.
-    """
     genre_id: int = Field(..., description="Genre ID")
     genre_name: str = Field(..., description="Genre name")
     total_books: int = Field(..., description="Total books in genre")
@@ -49,9 +39,6 @@ class AveragePriceByGenreResponseDto(BaseModel):
 
 
 class AverageStockResponseDto(BaseModel):
-    """
-    DTO for average stock calculation responses.
-    """
     total_books: int = Field(..., description="Total number of books")
     books_with_stock: int = Field(..., description="Number of books with stock info")
     average_stock: int = Field(..., description="Average stock number")
@@ -67,9 +54,6 @@ class AverageStockResponseDto(BaseModel):
 
 
 class AverageStockByGenreResponseDto(BaseModel):
-    """
-    DTO for average stock by genre responses.
-    """
     genre_id: int = Field(..., description="Genre ID")
     genre_name: str = Field(..., description="Genre name")
     total_books: int = Field(..., description="Total books in genre")
@@ -91,9 +75,6 @@ class AverageStockByGenreResponseDto(BaseModel):
 
 
 class ErrorResponseDto(BaseModel):
-    """
-    Standard error response DTO.
-    """
     detail: str = Field(..., description="Error description")
 
     class Config:

@@ -1,7 +1,3 @@
-"""
-Unit tests for domain entities.
-Tests business rules and validation logic.
-"""
 import pytest
 from decimal import Decimal
 
@@ -10,10 +6,8 @@ from book_api.domain.entities.genre import Genre
 
 
 class TestBookEntity:
-    """Test class for Book domain entity."""
 
     def test_book_creation_valid(self):
-        """Test creating a valid book."""
         book = Book(
             id=1,
             title="Test Book",

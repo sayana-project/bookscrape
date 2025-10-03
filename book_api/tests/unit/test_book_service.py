@@ -1,7 +1,4 @@
-"""
-Unit tests for BookService.
-These tests use mocks to isolate the business logic.
-"""
+
 import pytest
 from unittest.mock import Mock
 from decimal import Decimal
@@ -12,8 +9,6 @@ from book_api.domain.entities.genre import Genre
 
 
 class TestBookService:
-    """Test class for BookService business logic."""
-
     def setup_method(self):
         """Setup test dependencies before each test."""
         # Create mock repositories

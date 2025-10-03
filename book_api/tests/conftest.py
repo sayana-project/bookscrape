@@ -1,6 +1,3 @@
-"""
-Pytest configuration and fixtures.
-"""
 import pytest
 from decimal import Decimal
 

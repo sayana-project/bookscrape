@@ -1,7 +1,3 @@
-"""
-Book API Router - Clean Architecture version.
-These routes now use services instead of direct database access.
-"""
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
 
@@ -29,10 +25,6 @@ logger = get_typed_logger(__name__)
     description="Retrieve all books from the database"
 )
 def get_all_books(book_service: IBookService = Depends(get_book_service)) -> List[BookDto]:
-    """
-    Get all books.
-    Clean route that delegates to business service.
-    """
     try:
         books = book_service.get_all_books()
         return [_convert_book_to_dto(book) for book in books]
@@ -51,10 +43,6 @@ def search_books(
     keyword: str,
     book_service: IBookService = Depends(get_book_service)
 ) -> List[BookDto]:
-    """
-    Search books by keyword.
-    Clean route that delegates to business service.
-    """
     try:
         books = book_service.search_books(keyword)
         return [_convert_book_to_dto(book) for book in books]
@@ -73,10 +61,6 @@ def get_books_by_genre(
     genre_id: int,
     book_service: IBookService = Depends(get_book_service)
 ) -> List[BookDto]:
-    """
-    Get books by genre.
-    Clean route that delegates to business service.
-    """
     try:
         books = book_service.get_books_by_genre(genre_id)
         return [_convert_book_to_dto(book) for book in books]
@@ -98,18 +82,6 @@ def get_books_by_genre(
 def get_average_price_all(
     book_service: IBookService = Depends(get_book_service)
 ) -> AveragePriceResponseDto:
-    """
-    Calculate average price for all books.
-
-    This is a clean implementation that:
-    - Has no business logic in the route
-    - Delegates all work to the service
-    - Returns typed responses
-    - Handles errors properly
-
-    Returns:
-        AveragePriceResponseDto: Contains calculation results
-    """
     try:
         logger.info("Calculating average price for all books")
         result = book_service.calculate_average_price_all()
@@ -139,10 +111,6 @@ def get_average_price_by_genre(
     genre_id: int,
     book_service: IBookService = Depends(get_book_service)
 ) -> AveragePriceByGenreResponseDto:
-    """
-    Calculate average price for books in specific genre.
-    Clean route with proper error handling.
-    """
     try:
         logger.info(f"Calculating average price for genre {genre_id}")
         result = book_service.calculate_average_price_by_genre(genre_id)
@@ -200,10 +168,6 @@ def get_average_stock_by_genre(
     genre_id: int,
     book_service: IBookService = Depends(get_book_service)
 ) -> AverageStockByGenreResponseDto:
-    """
-    Calculate average stock for books in specific genre.
-    Clean route with proper error handling.
-    """
     try:
         logger.info(f"Calculating average stock for genre {genre_id}")
         result = book_service.calculate_average_stock_by_genre(genre_id)
@@ -225,10 +189,6 @@ def get_average_stock_by_genre(
 
 
 def _convert_book_to_dto(book) -> BookDto:
-    """
-    Convert domain entity to DTO.
-    Helper function to keep routes clean.
-    """
     return BookDto(
         id=book.id,
         title=book.title,

@@ -1,16 +1,8 @@
-"""
-Domain entity for Genre.
-Simple entity representing a book genre.
-"""
 from dataclasses import dataclass
 
 
 @dataclass
 class Genre:
-    """
-    Genre domain entity.
-    Represents a book genre category.
-    """
     id: int
     name: str
 

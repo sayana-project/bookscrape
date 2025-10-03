@@ -1,7 +1,3 @@
-"""
-Domain entity for Book.
-Contains business logic and rules for Book entity.
-"""
 from dataclasses import dataclass
 from typing import Optional
 from decimal import Decimal
@@ -9,10 +5,6 @@ from decimal import Decimal
 
 @dataclass
 class Book:
-    """
-    Book domain entity representing the core business concept of a book.
-    Contains business rules and validation logic.
-    """
     id: int
     title: str
     genre_id: int

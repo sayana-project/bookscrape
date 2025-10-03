@@ -1,7 +1,3 @@
-"""
-Genre API Router - Clean Architecture version.
-Simple router for genre operations.
-"""
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
 
@@ -29,10 +25,6 @@ logger = get_typed_logger(__name__)
 def get_all_genres(
     genre_repo: IGenreRepository = Depends(get_genre_repository)
 ) -> List[GenreDto]:
-    """
-    Get all genres.
-    Simple clean route.
-    """
     try:
         logger.info("Getting all genres")
         genres = genre_repo.get_all()
@@ -57,10 +49,6 @@ def get_genre_by_id(
     genre_id: int,
     genre_repo: IGenreRepository = Depends(get_genre_repository)
 ) -> GenreDto:
-    """
-    Get genre by ID.
-    Clean route with proper error handling.
-    """
     try:
         logger.info(f"Getting genre with ID: {genre_id}")
         genre = genre_repo.get_by_id(genre_id)
@@ -75,10 +63,6 @@ def get_genre_by_id(
 
 
 def _convert_genre_to_dto(genre) -> GenreDto:
-    """
-    Convert domain entity to DTO.
-    Helper function to keep routes clean.
-    """
     return GenreDto(
         id=genre.id,
         name=genre.name

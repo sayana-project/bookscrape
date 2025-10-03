@@ -1,17 +1,9 @@
-"""
-Data Transfer Objects (DTOs) for Book API.
-These define how data is sent in/out of the API.
-"""
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from decimal import Decimal
 
 
 class BookDto(BaseModel):
-    """
-    DTO for book data.
-    This is what gets returned by the API.
-    """
     id: int
     title: Optional[str] = Field(None, description="Book title")
     genre_id: Optional[int] = Field(None, description="ID of the genre")
@@ -42,10 +34,6 @@ class BookDto(BaseModel):
 
 
 class GenreDto(BaseModel):
-    """
-    DTO for genre data.
-    This is what gets returned by the API.
-    """
     id: int
     name: str = Field(..., min_length=1, description="Genre name")
 
@@ -61,9 +49,6 @@ class GenreDto(BaseModel):
 
 
 class BookSearchRequestDto(BaseModel):
-    """
-    DTO for book search requests.
-    """
     keyword: str = Field(..., min_length=1, description="Search keyword")
 
     class Config:
